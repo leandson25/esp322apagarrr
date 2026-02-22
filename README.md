@@ -96,20 +96,88 @@ http://192.168.4.1:80
 ## 📂 Estrutura do Projeto
 
 ```
+## 🗂️ Estrutura de Diretórios
+
+```
 esp322apagarrr/
-├── src/                    # Código fonte do firmware
-│   ├── main.cpp           # Entry point
-│   ├── app/               # Camada de aplicação
-│   ├── drivers/           # Drivers de hardware
-│   ├── effects/           # Motor de efeitos
-│   ├── services/          # Serviços de alto nível
-│   ├── communication/     # WebSocket + JSON
-│   └── system/            # WiFi, Logger, Storage
-├── interface/             # Interface web (PC)
-├── data/                  # Interface embarcada (SPIFFS)
-├── docs/                  # Documentação
-├── tools/                 # Scripts PowerShell
-└── platformio.ini         # Configuração do projeto
+├── 📄 platformio.ini              # Configuração do projeto
+├── 📄 README.md                    # Documentação principal
+│
+├── 📁 include/                    # Headers globais
+│   ├── config.h                   # Configurações do sistema
+│   ├── pins.h                     # Mapeamento de pinos
+│   └── protocol.h                 # Definições de protocolo
+│
+├── 📁 src/                        # Código fonte do firmware
+│   ├── main.cpp                   # Entry point
+│   │
+│   ├── 📁 app/                    # Camada de aplicação
+│   │   ├── app.h
+│   │   └── app.cpp
+│   │
+│   ├── 📁 drivers/                # Drivers de hardware
+│   │   ├── led_driver.h/cpp       # Driver de LEDs NeoPixel
+│   │   └── pwm_driver.h/cpp       # Driver PWM
+│   │
+│   ├── 📁 effects/                # Motor de efeitos
+│   │   ├── effects.h
+│   │   ├── fade.cpp
+│   │   ├── pulse.cpp
+│   │   ├── wave.cpp
+│   │   └── strobe.cpp
+│   │
+│   ├── 📁 services/              # Serviços de alto nível
+│   │   ├── services.h
+│   │   ├── led_service.cpp
+│   │   ├── mode_service.cpp
+│   │   └── message_service.cpp
+│   │
+│   ├── 📁 communication/         # Comunicação
+│   │   ├── communication.h/cpp
+│   │   ├── websocket_server.h/cpp
+│   │   └── json_parser.h/cpp
+│   │
+│   └── 📁 system/                # Sistema/Infraestrutura
+│       ├── system.h
+│       ├── logger.h/cpp
+│       ├── scheduler.h/cpp
+│       ├── storage.h/cpp
+│       └── wifi_manager.h/cpp
+│
+├── 📁 interface/                  # Interface web (PC)
+│   ├── index.html
+│   ├── 📁 assets/
+│   │   ├── 📁 css/               # Estilos
+│   │   ├── 📁 js/                # Módulos JS
+│   │   │   ├── api.js
+│   │   │   ├── dashboard.js
+│   │   │   ├── led_control.js
+│   │   │   ├── websocket.js
+│   │   │   └── ui_manager.js
+│   │   └── 📁 fonts/
+│   │   ├── 📁 components/        # Componentes
+│   │   │   ├── slider.js
+│   │   │   ├── toggle.js
+│   │   │   └── ...
+│   │   └── 📁 config/
+│   │       └── settings.js
+│
+├── 📁 data/                       # Interface embarcada (SPIFFS)
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
+│
+├── 📁 docs/                      # Documentação
+│   ├── architecture.md
+│   ├── protocol.md
+│   ├── wiring.md
+│   └── roadmap.md
+│
+└── 📁 tools/                     # Scripts auxiliares
+    ├── build.ps1
+    ├── clean.ps1
+    ├── monitor.ps1
+    └── upload_fs.ps1
 ```
 
 Consulte [docs/architecture-diagram.md](docs/architecture-diagram.md) para diagramas detalhados.
