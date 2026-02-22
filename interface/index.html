@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP322Apagarrr Dashboard</title>
+
+    <!-- CSS base e futurista -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/futuristic.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/fonts/favicon.png">
+</head>
+<body class="theme-futuristic">
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>ESP32 LED Dashboard</h1>
+        <nav>
+            <button id="btn-reset">Resetar Configurações</button>
+            <button id="btn-reconnect">Reconectar</button>
+        </nav>
+    </header>
+
+    <!-- Painel Principal -->
+    <main class="dashboard">
+
+        <!-- Status Panel -->
+        <section id="status-panel" class="panel">
+            <!-- Componente StatusPanel.js -->
+        </section>
+
+        <!-- Efeitos ativos -->
+        <section id="effects-panel" class="panel">
+            <h2>Efeitos Ativos</h2>
+            <div id="effects-cards" class="cards-container">
+                <!-- Componente EffectCard.js -->
+            </div>
+        </section>
+
+        <!-- Controles Dinâmicos -->
+        <section id="controls-panel" class="panel">
+            <h2>Controles</h2>
+            <div class="controls-container">
+
+                <!-- Dials -->
+                <div id="dial-brightness" class="control">
+                    <!-- Componente Dial.js -->
+                </div>
+                <div id="dial-speed" class="control">
+                    <!-- Componente Dial.js -->
+                </div>
+
+                <!-- Sliders -->
+                <div id="slider-red" class="control">
+                    <!-- Componente Slider.js -->
+                </div>
+                <div id="slider-green" class="control">
+                    <!-- Componente Slider.js -->
+                </div>
+                <div id="slider-blue" class="control">
+                    <!-- Componente Slider.js -->
+                </div>
+
+                <!-- Toggles -->
+                <div id="toggle-auto-mode" class="control">
+                    <!-- Componente Toggle.js -->
+                </div>
+                <div id="toggle-strobe" class="control">
+                    <!-- Componente Toggle.js -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 ESP322Apagarrr | Desenvolvido por Equipe Futurista</p>
+    </footer>
+
+    <!-- Scripts Base -->
+    <script type="module" src="assets/js/settings.js"></script>
+    <script type="module" src="assets/js/api.js"></script>
+    <script type="module" src="assets/js/messages.js"></script>
+    <script type="module" src="assets/js/effects.js"></script>
+
+    <!-- Componentes -->
+    <script type="module" src="assets/js/components/dial.js"></script>
+    <script type="module" src="assets/js/components/slider.js"></script>
+    <script type="module" src="assets/js/components/toggle.js"></script>
+    <script type="module" src="assets/js/components/statusPanel.js"></script>
+    <script type="module" src="assets/js/components/effectCard.js"></script>
+
+    <!-- Inicialização da Dashboard -->
+    <script type="module">
+        import { Settings } from './assets/js/settings.js';
+        import { Dial } from './assets/js/components/dial.js';
+        import { Slider } from './assets/js/components/slider.js';
+        import { Toggle } from './assets/js/components/toggle.js';
+        import { StatusPanel } from './assets/js/components/statusPanel.js';
+        import { EffectCard } from './assets/js/components/effectCard.js';
+        import { Effects } from './assets/js/effects.js';
+        import { API } from './assets/js/api.js';
+        import { Messages } from './assets/js/messages.js';
+
+        // Inicializa configurações
+        Settings.init();
+
+        // Cria componentes interativos
+        const brightnessDial = new Dial('dial-brightness', 'Brilho', Settings.get('brightness'), value => {
+            Settings.set('brightness', value);
+            API.send({brightness: value});
+        });
+
+        const speedDial = new Dial('dial-speed', 'Velocidade', Settings.get('speed'), value => {
+            Settings.set('speed', value);
+            API.send({speed: value});
+        });
+
+        const redSlider = new Slider('slider-red', 'Vermelho', 0, 255, value => API.send({red: value}));
+        const greenSlider = new Slider('slider-green', 'Verde', 0, 255, value => API.send({green: value}));
+        const blueSlider = new Slider('slider-blue', 'Azul', 0, 255, value => API.send({blue: value}));
+
+        const autoToggle = new Toggle('toggle-auto-mode', 'Modo Automático', Settings.get('mode') === 'auto', state => {
+            Settings.set('mode', state ? 'auto' : 'manual');
+            API.send({mode: state ? 'auto' : 'manual'});
+        });
+
+        const strobeToggle = new Toggle('toggle-strobe', 'Strobe', false, state => {
+            API.send({strobe: state});
+        });
+
+        // Status panel
+        const statusPanel = new StatusPanel('status-panel');
+
+        // Inicializa painel de efeitos
+        const effects = new Effects('effects-cards');
+
+        // Botões da Navbar
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            Settings.reset();
+            location.reload();
+        });
+
+        document.getElementById('btn-reconnect').addEventListener('click', () => {
+            API.reconnect();
+        });
+
+        console.log('Dashboard inicializada');
+    </script>
+</body>
+</html>

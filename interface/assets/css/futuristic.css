@@ -1,0 +1,96 @@
+/* Fundo gradiente futurista */
+body.futuristic {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Cards futuristas com glow e bordas neon */
+.card.futuristic {
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 1px solid #bb86fc;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 0 15px #bb86fc, 0 0 30px #03dac6;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card.futuristic:hover {
+    box-shadow: 0 0 25px #bb86fc, 0 0 50px #03dac6;
+    transform: translateY(-5px);
+}
+
+/* Botões futuristas */
+button.futuristic {
+    background: linear-gradient(90deg, #bb86fc, #03dac6);
+    color: #121212;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #bb86fc, 0 0 20px #03dac6;
+    transition: all 0.2s ease-in-out;
+}
+
+button.futuristic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #bb86fc, 0 0 40px #03dac6;
+}
+
+/* Sliders futuristas */
+input[type=range].futuristic {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #bb86fc, #03dac6);
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+input[type=range].futuristic::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 8px #bb86fc, 0 0 16px #03dac6;
+}
+
+input[type=range].futuristic::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 8px #bb86fc, 0 0 16px #03dac6;
+}
+
+/* Indicadores futuristas de status */
+.status-light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 5px #03dac6, 0 0 10px #03dac6;
+    background-color: #03dac6;
+    margin-right: 0.5rem;
+}
+
+.status-light.off {
+    background-color: #555555;
+    box-shadow: none;
+}
+
+/* Texto e títulos futuristas */
+h1, h2, h3, h4 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}

@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #bb86fc;
+}
+
+header h1 {
+    color: #bb86fc;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Main */
+main {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Sections */
+section {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #bb86fc;
+}
+
+/* Botões e inputs */
+button {
+    background-color: #bb86fc;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #121212;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #9a65e0;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1f1f1f;
+    border-top: 2px solid #bb86fc;
+    font-size: 0.9rem;
+}

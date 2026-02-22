@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --background-dark: #121212;
+    --background-light: #ffffff;
+    --text-dark: #121212;
+    --text-light: #ffffff;
+}
+
+/* Dark mode (padrão) */
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+/* Light mode */
+body.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+button {
+    background-color: var(--primary-color);
+}
+
+button.secondary {
+    background-color: var(--secondary-color);
+}

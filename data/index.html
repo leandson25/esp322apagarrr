@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP322Apagarrr - Controle de LEDs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ESP322Apagarrr</h1>
+        <p>Controle avançado de LEDs em tempo real</p>
+    </header>
+
+    <main>
+        <section class="led-control">
+            <h2>Controle de LEDs</h2>
+            <div class="led-buttons">
+                <button id="led-on">Ligar</button>
+                <button id="led-off">Desligar</button>
+            </div>
+            <label for="brightness">Brilho:</label>
+            <input type="range" id="brightness" min="0" max="255" value="128">
+        </section>
+
+        <section class="effects-control">
+            <h2>Efeitos Visuais</h2>
+            <select id="effect-selector">
+                <option value="fade">Fade</option>
+                <option value="pulse">Pulse</option>
+                <option value="wave">Wave</option>
+                <option value="strobe">Strobe</option>
+            </select>
+            <button id="apply-effect">Aplicar</button>
+        </section>
+
+        <section class="status">
+            <h2>Status do Sistema</h2>
+            <p id="wifi-status">Wi-Fi: Desconectado</p>
+            <p id="led-status">LEDs: Desligados</p>
+            <p id="current-effect">Efeito Atual: Nenhum</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ESP322Apagarrr</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

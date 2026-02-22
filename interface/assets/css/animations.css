@@ -1,0 +1,60 @@
+/* Efeito de piscar rápido - para alertas ou LEDs críticos */
+.blink-fast {
+    animation: blinkFast 0.5s infinite;
+}
+
+@keyframes blinkFast {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* Efeito de piscar lento */
+.blink-slow {
+    animation: blinkSlow 1.5s infinite;
+}
+
+@keyframes blinkSlow {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* Efeito de rotação suave para ícones ou indicadores */
+.rotate {
+    animation: rotate360 2s linear infinite;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Efeito de deslizamento lateral */
+.slide-left {
+    animation: slideLeft 0.7s ease forwards;
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Efeito de deslizamento para cima */
+.slide-up {
+    animation: slideUp 0.7s ease forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Efeito de pulso progressivo, ideal para LEDs em transição */
+.pulse-glow {
+    animation: pulseGlow 1.5s infinite ease-in-out;
+    box-shadow: 0 0 5px #bb86fc, 0 0 10px #bb86fc;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 5px #bb86fc, 0 0 10px #bb86fc; }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px #bb86fc, 0 0 25px #bb86fc; }
+}
