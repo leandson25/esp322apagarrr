@@ -98,7 +98,7 @@ http://192.168.4.1:80
 ```
 ## 🗂️ Estrutura de Diretórios
 
-```
+
 esp322apagarrr/
 ├── 📄 platformio.ini              # Configuração do projeto
 ├── 📄 README.md                    # Documentação principal
